@@ -18,19 +18,30 @@ import com.prueba.ingeneo.cinema.service.SalaService;
 import com.prueba.ingeneo.cinema.util.RestResponse;
 
 /**
- * Creacion del servicio rest 
+ * Creacion del servicio rest para la sala de una sucursal
  * @author santi
  *
  */
 @RestController
 public class SalaController {
-
+	/**
+	 * atributo que representa una instancia de salaService que se utiliza 
+	 * para definir el metodo del servicio que se va a utilizar
+	 */
 	@Autowired
 	protected SalaService salaService;
 	
-	
+	/**
+	 * atributo utilizado para convertir un String en un objeto
+	 */
 	protected ObjectMapper objectMapper;
-	
+	/**
+	 * metodo que permite guardar o actualizar una sala de cine
+	 * @param salaJson
+	 * @return
+	 * @throws JsonMappingException
+	 * @throws JsonProcessingException
+	 */
 	@RequestMapping(value="/guardarOActualizar", method = RequestMethod.POST)
 	public RestResponse guardaroActualizar(@RequestBody String salaJson) throws JsonMappingException, JsonProcessingException {
 		objectMapper= new ObjectMapper();
@@ -41,7 +52,11 @@ public class SalaController {
 		salaService.save(sala);
 		return new RestResponse(HttpStatus.OK.value(),"operacion extiosa");
 	}
-	
+	/**
+	 * metodo que permite validar que el id no llegue nulo
+	 * @param sala
+	 * @return
+	 */
 	private boolean validar(Sala sala) {
 		boolean esValido=true;
 		if(sala.getId()==null) {

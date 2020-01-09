@@ -10,17 +10,24 @@ import com.prueba.ingeneo.cinema.dao.SalasRepository;
 import com.prueba.ingeneo.cinema.model.Sala;
 
 /**
+ * clase que representa la implementacion de los metodos expuestos 
+ * por la interface salaService
  * @author santi
  *
  */
 @Service
 public class SalaServiceImpl implements SalaService {
+	/*
+	 * atributo que repsenta una instancia de salasRepository
+	 */
 	@Autowired
 	protected SalasRepository salaRepository;
-
+	/**
+	 * implementacion del metodo save 
+	 */
 	@Override
 	public Sala save(Sala sala) {
-		// TODO Auto-generated method stub
+
 		return this.salaRepository.save(sala);
 	}
 }

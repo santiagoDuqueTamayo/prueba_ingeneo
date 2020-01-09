@@ -16,15 +16,22 @@ import com.prueba.ingeneo.cinema.service.SalaService;
 import com.prueba.ingeneo.cinema.service.TipoSalaService;
 
 /**
+ * clase que  representa un servicio a consumir para el tipo de sala
  * @author santi
  *
  */
 @RestController
 public class TipoSalaController {
-
+	/**
+	 * atributo que representa una instancia de tiposalaService para utilizar el metodo
+	 * findAll definido en dicha clase
+	 */
 	@Autowired
 	protected TipoSalaService tipoSillaService;
-	
+	/**
+	 * metodo que permite encontrar el tipo de sala requerido
+	 * @return
+	 */
 	@RequestMapping(value="/buscarTipoSala", method = RequestMethod.GET)
 	public List <TipoSala> buscarTipoSala() {
 		return tipoSillaService.findAll();
