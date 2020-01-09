@@ -17,7 +17,7 @@ public class MaximoSillasImpl implements MaximoSillasService {
 
 	@Override
 	public List<MaximoSillas> findAll() {
-		// TODO Auto-generated method stub
+		
 		return this.maximoSillasRepository.findAll();
 	}
 	
