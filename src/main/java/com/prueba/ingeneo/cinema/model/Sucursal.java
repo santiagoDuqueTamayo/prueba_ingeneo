@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -23,8 +25,12 @@ public class Sucursal implements Serializable{
 	private Long id;
 	private String nombre;
 	private String direccion;
+	
+	@ManyToOne
+	private Ciudad ciudad;
 	//TODO
 	// Todas las relaciones de las foraneas
+	
 	
 	
 	

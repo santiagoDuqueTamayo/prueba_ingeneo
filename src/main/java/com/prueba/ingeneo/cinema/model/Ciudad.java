@@ -1,10 +1,12 @@
 package com.prueba.ingeneo.cinema.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,8 +27,12 @@ public class Ciudad implements Serializable{
 	 * atributo que presenta el nombre de una ciudad
 	 */
 	
-	private String nombreciudad;
-	
+	private String nombreCiudad;
+	/**
+	 * lista que repsenta un listado de sucursales
+	 */
+	@OneToMany(mappedBy = "ciudad")
+	private List<Sucursal> sucursales;
 	//TODO
 	//relaciones, gets y sets
 	
